@@ -11,11 +11,11 @@ import SwiftUI
 struct asdasdApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: SquareOptionsContainerViewModel(firstOptionTitle: "test1", secondOptionTitle: "test2", firstVoteRatio: 0.0, secondVoteRatio: 0.0, firstOptionClickListener: {
+            ContentView(firstOptionTitle: "test1", secondOptionTitle: "test2", firstVoteRatio: 0.0, secondVoteRatio: 0.0) {
                 
-            }, secondOptionClickListener: {
+            } secondOptionClickListener: {
                 
-            }))
+            }
         }
     }
 }

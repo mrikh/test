@@ -9,20 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var viewModel: SquareOptionsContainerViewModel
+    @State var firstOptionTitle: String
+    @State var secondOptionTitle: String
+    @State var firstVoteRatio: Double
+    @State var secondVoteRatio: Double
+    @State var firstOptionClickListener: ()->()
+    @State var secondOptionClickListener: ()->()
 
     var body: some View {
         HStack(spacing: 0.0){
-            SquareOptionView(title: viewModel.firstOptionTitle, voteRatio: $viewModel.firstVoteRatio, color: .green){
-                viewModel.firstVoteRatio = random(min: 0.0, max: 1.0)
+            SquareOptionView(title: firstOptionTitle, voteRatio: $firstVoteRatio, color: .green){
+                firstVoteRatio = random(min: 0.0, max: 1.0)
             }
             Rectangle()
                 .frame(width: 2.0)
                 .foregroundColor(
                     .black
                 )
-            SquareOptionView(title: viewModel.secondOptionTitle, voteRatio: $viewModel.secondVoteRatio, color: .red){
-                viewModel.secondVoteRatio = random(min: 0.0, max: 1.0)
+            SquareOptionView(title: secondOptionTitle, voteRatio: $secondVoteRatio, color: .red){
+                secondVoteRatio = random(min: 0.0, max: 1.0)
             }
         }
         .clipShape(
